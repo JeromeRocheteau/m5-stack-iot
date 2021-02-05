@@ -16,5 +16,7 @@ void loop() {
   delay(50);
   value = digitalRead(26);
   Serial.println(value);
+  delay(50);
+  Serial.println(value == 0 ? "light" : "dark");
   delay(200);
 }
