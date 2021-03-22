@@ -8,7 +8,7 @@ const char* password    = "I4.8IoT@Nantes";
 const char* broker_url  = "app.icam.fr";
 const int   broker_port = 1883;
 const char* client_id   = "5aa5b3b1b0b3";
-const char* sub_topic   = "test/a28162ec24ca/status";
+const char* sub_topic   = "test/pub/data";
 
 WiFiClient wifiClient;
 PubSubClient mqttClient(wifiClient);
@@ -20,9 +20,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
   char* content = (char*) payload;
   if (strcmp(content, "none") == 0) {
     state = 0;
-  } else if (strcmp(content, "green") == 0) {
-    state = 1;
   } else if (strcmp(content, "red") == 0) {
+    state = 1;
+  } else if (strcmp(content, "green") == 0) {
     state = 2;
   } else if (strcmp(content, "blue") == 0) {
     state = 3;
