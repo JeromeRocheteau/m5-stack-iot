@@ -8,7 +8,7 @@ const char* password    = "I4.8IoT@Nantes";
 const char* broker_url  = "app.icam.fr";
 const int   broker_port = 1883;
 const char* client_id   = "a28162ec24ca";
-const char* pub_topic   = "test/a28162ec24ca/status";
+const char* pub_topic   = "test/pub/data";
 
 WiFiClient wifiClient;
 PubSubClient mqttClient(wifiClient);
@@ -32,7 +32,6 @@ void loop() {
         }
       }
     } else {
-      mqttClient.loop();
       if (M5.Btn.wasPressed()) {
         state = (state == 3) ? 0 : state + 1;
         set_led();
@@ -41,7 +40,7 @@ void loop() {
       }
     }  
   }
-  delay(50);
+  delay(5);
   M5.update();
 }
 
