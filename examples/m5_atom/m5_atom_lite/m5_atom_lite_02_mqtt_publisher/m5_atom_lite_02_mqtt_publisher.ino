@@ -35,7 +35,7 @@ void loop() {
       if (M5.Btn.wasPressed()) {
         state = (state == 3) ? 0 : state + 1;
         set_led();
-        const char* message = (state == 0 ? "none" : (state == 1 ? "green" : (state == 2 ? "red" : "blue")));
+        const char* message = (state == 0 ? "none" : (state == 1 ? "red" : (state == 2 ? "green" : "blue")));
         mqttClient.publish(pub_topic, message);
       }
     }  
